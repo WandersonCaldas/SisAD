@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SisAD.Models.Config>
+
+@{
+    ViewBag.Title = "Config";
+    Layout = null;
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.origem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destino)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.origem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destino)
+        </td>      
+    </tr>
+    <tr>
+        <td>
+            @Html.Action("DiretorioOrigem", "Home")
+        </td>
+    </tr>
+}
+
+</table>

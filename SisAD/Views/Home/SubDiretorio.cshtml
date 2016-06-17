@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SisAD.Models.Diretorio>
+
+@using (Html.BeginForm("Copiar", "Home", FormMethod.Post, new { id = "frm1" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    @Html.Partial("_botoes")
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("ARQUIVOS")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.pasta != null)
+                    {
+                        <input id="@item.pasta" name="item" type="checkbox" value="@item.pasta" />
+                        <a href="@Url.Action("SubDiretorio", "Home", new { caminho = item.pasta })">
+                            @Html.DisplayFor(modelItem => item.pasta_nome)
+                        </a>
+                    }
+
+                    @if (item.arquivo != null)
+                    {
+                        <input id="@item.arquivo" name="item" type="checkbox" value="@item.arquivo" />
+                        @Html.DisplayFor(modelItem => item.arquivo_nome)
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+@Scripts.Render("~/bundles/jquery")

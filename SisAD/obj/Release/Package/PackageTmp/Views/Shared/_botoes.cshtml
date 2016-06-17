@@ -1,0 +1,47 @@
+﻿@Scripts.Render("~/bundles/jquery")
+
+<h2>
+    <input id="btn_copiar" type="button" value="Copiar" class="btn btn-primary btn-lg" />
+    <input id="btn_atualizar" type="button" value="Atualizar" class="btn btn-primary btn-lg" />
+</h2>
+
+<script type="text/javascript">
+    $("#btn_atualizar").click(function () {
+        location.reload();
+    });
+
+    $("#btn_copiar").click(function () {
+        if (VerificaChecks())
+        {
+            if (confirm('Deseja copiar os arquivos selecionados?')) {
+                $("#frm1").submit();
+            }
+            else {
+                return false;
+            }
+        }
+    });
+
+    function VerificaChecks()
+    {
+        var aChk = document.getElementsByName("item");
+        var ct;
+
+        ct = 0;
+
+        for (var i = 0; i < aChk.length; i++) {
+            if (aChk[i].checked == true) {
+                ct += 1;
+            }
+        }
+
+        if(ct > 0)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+</script>

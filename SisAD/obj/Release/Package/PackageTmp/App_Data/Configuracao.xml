@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuracao>
+  <dados>
+    <origem>C:\inetpub\wwwroot\fundiagua\proton</origem>
+    <destino>C:\DESTINO\proton</destino>
+  </dados>
+</configuracao>
